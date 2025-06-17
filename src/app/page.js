@@ -15,7 +15,7 @@ export default function Main() {
     <>
       <Header />
       <Home />
-      <Features />
+      {/* <Features />  */}
       <About />
       <Team />
       <Portfolio />

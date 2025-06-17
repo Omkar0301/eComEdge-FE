@@ -6,12 +6,21 @@ import { Menu, X, Search, SunMoon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useDarkMode } from "@/components/ui/lightdarktheme";
+import { useThemeToggle } from "@/components/ui/lightDarkTheme";
 
 function Header() {
   // -------------------------------------------------- Variables ----------------------------------------------- //
   const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, toggleTheme] = useDarkMode();
+  const [theme, toggleTheme] = useThemeToggle();
+
+  const navItems = [
+    { href: "/#aboutus", text: "About Us" },
+    { href: "/#features", text: "Features" },
+    { href: "/#portfolio", text: "Portfolio" },
+    { href: "/#testimonials", text: "Testimonials" },
+    { href: "/#pricing", text: "Pricing" },
+    { href: "/#contactus", text: "Contact Us" },
+  ];
 
   return (
     <>
@@ -41,47 +50,15 @@ function Header() {
 
           {/* --------------------------------------- Desktop Navigation --------------------------------------------- */}
           <nav className="hidden lg:flex lg:items-center lg:space-x-12">
-            <Link
-              href="/#aboutus"
-              className="relative dark:text-white text-[clamp(18px,1.5vw,20px)] font-medium transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-            >
-              About Us
-            </Link>
-
-            <Link
-              href="/#features"
-              className="relative dark:text-white  text-[clamp(18px,1.5vw,20px)] font-medium transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-400 hover:after:w-full"
-            >
-              Features
-            </Link>
-
-            <Link
-              href="/#portfolio"
-              className="relative dark:text-white  text-[clamp(18px,1.5vw,20px)] font-medium transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-400 hover:after:w-full"
-            >
-              Portfolio
-            </Link>
-
-            <Link
-              href="/#testimonials"
-              className="relative dark:text-white text-[clamp(18px,1.5vw,20px)] font-medium transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-400 hover:after:w-full"
-            >
-              Testimonials
-            </Link>
-
-            <Link
-              href="/#pricing"
-              className="relative dark:text-white text-[clamp(18px,1.5vw,20px)] font-medium transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-400 hover:after:w-full"
-            >
-              Pricing
-            </Link>
-
-            <Link
-              href="/#contactus"
-              className="relative dark:text-white text-[clamp(18px,1.5vw,20px)] font-medium transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-400 hover:after:w-full"
-            >
-              Contact Us
-            </Link>
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="relative dark:text-white text-[clamp(18px,1.5vw,20px)] font-medium transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+              >
+                {item.text}
+              </Link>
+            ))}
           </nav>
 
           {/* --------------------------------------------- Right Controls -------------------------------------------- */}
@@ -89,7 +66,12 @@ function Header() {
             {/* <Button variant="ghost" size="icon" className="hidden sm:flex">
               <Search className="h-5 w-5 text-white" />
             </Button> */}
-            <Button variant="ghost" size="icon" className="flex" onClick={toggleTheme}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="flex"
+              onClick={toggleTheme}
+            >
               <SunMoon className="h-5 w-5 dark:text-white border-dark" />
             </Button>
 
@@ -108,60 +90,45 @@ function Header() {
 
       {/* ----------------------------------------------- Overlay ---------------------------------------------- */}
       {menuOpen && (
-        <div className="fixed  inset-0 z-40 dark:bg-dark/70 bg-white/100  lg:hidden" onClick={() => setMenuOpen(false)} />
+        <div
+          className="fixed  inset-0 z-40 dark:bg-dark/70 bg-white/100  lg:hidden"
+          onClick={() => setMenuOpen(false)}
+        />
       )}
 
       {/* ----------------------------------- Sidebar (only visible in tab and mobile) ------------------------- */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-72 dark:bg-dark bg-white/100 p-5 shadow-lg transition-transform duration-100 transform lg:hidden ${menuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed top-0 right-0 z-50 h-full w-72 dark:bg-dark bg-white/100 p-5 shadow-lg transition-transform duration-100 transform lg:hidden ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex justify-end">
-          <Button variant="ghost" size="icon" onClick={() => setMenuOpen(false)} className="border">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setMenuOpen(false)}
+            className="border"
+          >
             <X className="h-10 w-10 dark:text-white" />
           </Button>
         </div>
         <nav className="mt-10 flex flex-col space-y-5 dark:text-white">
-          <motion.div whileHover={{ x: 10 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
-            <Link href="/#aboutus" onClick={() => setMenuOpen(false)} className="block text-[20px] font-medium hover:text-primary">
-              About Us
-            </Link>
-          </motion.div>
-          <hr className="dark:border-white/20" />
-
-          <motion.div whileHover={{ x: 10 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
-            <Link href="/#features" onClick={() => setMenuOpen(false)} className="block text-[20px] font-medium hover:text-primary">
-              Features
-            </Link>
-          </motion.div>
-          <hr className="dark:border-white/20" />
-
-          <motion.div whileHover={{ x: 10 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
-            <Link href="/#portfolio" onClick={() => setMenuOpen(false)} className="block text-[20px] font-medium hover:text-primary">
-              Portfolio
-            </Link>
-          </motion.div>
-          <hr className="dark:border-white/20" />
-
-          <motion.div whileHover={{ x: 10 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
-            <Link href="/#testimonials" onClick={() => setMenuOpen(false)} className="block text-[20px] font-medium hover:text-primary">
-              Testimonials
-            </Link>
-          </motion.div>
-          <hr className="dark:border-white/20" />
-
-          <motion.div whileHover={{ x: 10 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
-            <Link href="/#pricing" onClick={() => setMenuOpen(false)} className="block text-[20px] font-medium hover:text-primary">
-              Pricing
-            </Link>
-          </motion.div>
-          <hr className="dark:border-white/20" />
-
-          <motion.div whileHover={{ x: 10 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
-            <Link href="/#contactus" onClick={() => setMenuOpen(false)} className="block text-[20px] font-medium hover:text-primary">
-              Contact Us
-            </Link>
-          </motion.div>
+          {navItems.map((item) => (
+            <motion.div
+              key={item.href}
+              whileHover={{ x: 10 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
+            >
+              <Link
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="block text-[20px] font-medium hover:text-primary"
+              >
+                {item.text}
+              </Link>
+              <hr className="dark:border-white/20" />
+            </motion.div>
+          ))}
         </nav>
       </div>
     </>
