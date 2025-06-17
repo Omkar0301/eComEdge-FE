@@ -13,19 +13,27 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, toggleTheme] = useThemeToggle();
 
+  const handleClick = (e, href) => {
+  e.preventDefault();
+  setMenuOpen(false);
+  const targetId = href.replace(/.*#/, "");
+  const elem = document.getElementById(targetId);
+  elem?.scrollIntoView({ behavior: "smooth" });
+};
+
   const navItems = [
-    { href: "/#aboutus", text: "About Us" },
     { href: "/#features", text: "Features" },
+    { href: "/#aboutus", text: "About Us" },
     { href: "/#portfolio", text: "Portfolio" },
-    { href: "/#testimonials", text: "Testimonials" },
+    { href: "/#testimonial", text: "Testimonials" },
     { href: "/#pricing", text: "Pricing" },
-    { href: "/#contactus", text: "Contact Us" },
+    { href: "/#support", text: "Contact Us" },
   ];
 
   return (
     <>
       {/* ---------------------------------------------- Header ----------------------------------------------- */}
-      <header className="sticky top-0 left-0 z-50 w-full dark:bg-dark/70  backdrop-blur-md px-4 py-5 lg:px-10 xl:px-15">
+      <header className="sticky top-0 left-0 z-50 w-full dark:bg-dark/70 bg-[#F5F5F5]/30  backdrop-blur-md px-4 py-5 lg:px-10 xl:px-15">
         <div className="flex items-center justify-between ">
           {/* ------------------------------------------ Logo ------------------------------------------------------ */}
           <Link href="/">
@@ -55,6 +63,7 @@ function Header() {
                 key={item.href}
                 href={item.href}
                 className="relative dark:text-white text-[clamp(18px,1.5vw,20px)] font-medium transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                onClick={(e) => handleClick(e, item.href)}
               >
                 {item.text}
               </Link>
@@ -126,7 +135,7 @@ function Header() {
               >
                 {item.text}
               </Link>
-              <hr className="dark:border-white/20" />
+              <hr className="dark:border-white/20 mt-4" />
             </motion.div>
           ))}
         </nav>

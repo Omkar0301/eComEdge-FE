@@ -3,7 +3,7 @@ import { Check, ArrowRight } from 'lucide-react';
 
 function Pricing() {
   return (
-    <section id="pricing" className="pt-14 sm:pt-20 lg:pt-[130px]">
+    <section id="pricing" className="pt-14 sm:pt-20 lg:pt-[80px]">
       <div className="px-4 xl:container">
         <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16">
           <span className="title">PRICING PLANS</span>

@@ -9,7 +9,7 @@ function Home() {
   return (
     <section
       id="home"
-      className="relative z-40 overflow-hidden pb-24 pt-28 sm:pt-36 lg:pb-[120px] lg:pt-[170px]"
+      className="relative z-40 overflow-hidden py-10 sm:pt-30 lg:pb-[30px] lg:pt-[30px]"
     >
       <div className="px-4 xl:container">
         <div className="-mx-4 flex flex-wrap items-center">
