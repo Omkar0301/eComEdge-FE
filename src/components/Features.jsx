@@ -3,7 +3,8 @@ import React from "react";
 
 function Features() {
   return (
-    <section id="features" className="pt-14 sm:pt-20 lg:pt-[130px]">
+    <>
+      {/* <section id="features" className="pt-14 sm:pt-20 lg:pt-[130px]">
       <div className="pt-14 sm:pt-20 lg:pt-[130px]">
         <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16">
           <span className="title">Feature</span>
@@ -56,7 +57,8 @@ function Features() {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
+    </>
   );
 }
 
