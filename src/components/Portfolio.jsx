@@ -4,7 +4,7 @@ import React from "react";
 
 function Portfolio() {
   return (
-    <section id="portfolio" className="pt-14 sm:pt-20 lg:pt-[130px]">
+    <section id="portfolio" className="pt-14 sm:pt-20 lg:pt-[80px]">
       <div className="px-4 xl:container">
         <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16">
           <span className="title">PORTFOLIO</span>
