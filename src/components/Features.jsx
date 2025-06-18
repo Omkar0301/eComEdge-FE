@@ -3,14 +3,14 @@ import React from "react";
 function Features() {
   return (
     <>
-      <section id="features" className="pt-14 sm:pt-20 lg:pt-[30px] lg:pb-[30px]">
+      <section id="features" className="pt-14 sm:pt-20 lg:pt-[30px] lg:pb-[30px] lg:flex lg:justify-center lg:items-center">
         <div className="pt-14 sm:pt-20 lg:pt-[30px]">
           <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16">
             <span className="title">Features</span>
-            <div className="mb-5 font-heading text-3xl font-semibold text-dark dark:text-white sm:text-4xl md:text-[50px] md:leading-[60px]">
+            <div className="mb-5 font-heading px-2 md:px-0 text-3xl font-semibold text-dark dark:text-white sm:text-4xl md:text-[50px] md:leading-[60px]">
               Essential Integrations with Modern Design
             </div>
-            <div className="text-base text-dark-text">
+            <div className="text-base text-dark-text px-2 md:px-0 ">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
               convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam
               ante in maximus.

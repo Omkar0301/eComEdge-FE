@@ -6,7 +6,7 @@ import Image from "next/image";
 function About() {
   const [activeTab, setActiveTab] = useState('about');
   return (
-    <section id="aboutus" className="pt-14 sm:pt-20 lg:pt-[80px] flex justify-center items-center">
+    <section id="aboutus" className="pt-14 sm:pt-20 lg:pt-[80px] lg:flex lg:justify-center lg:items-center">
       <div className="px-4 xl:container">
         <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16">
           <span className="title">About</span>
