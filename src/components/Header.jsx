@@ -6,7 +6,7 @@ import { Menu, X, Search, SunMoon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useThemeToggle } from "@/components/ui/lightDarkTheme";
+import { useThemeToggle } from "@/components/ui/lightdarktheme";
 
 function Header() {
   // -------------------------------------------------- Variables ----------------------------------------------- //
