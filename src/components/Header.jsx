@@ -33,7 +33,7 @@ function Header() {
   return (
     <>
       {/* ---------------------------------------------- Header ----------------------------------------------- */}
-      <header className="sticky top-0 left-0 z-50 w-full dark:bg-dark/70 bg-[#F5F5F5]/30  backdrop-blur-md px-4 py-5 lg:px-10 xl:px-15">
+      <header className="sticky top-0 left-0 z-50 w-full dark:bg-dark/70 bg-[#F5F5F5]/30 backdrop-blur-md px-4 py-3  lg:px-10 xl:px-15">
         <div className="flex items-center justify-between ">
           {/* ------------------------------------------ Logo ------------------------------------------------------ */}
           <Link href="/">
@@ -62,7 +62,7 @@ function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative dark:text-white text-[clamp(18px,1.5vw,20px)] font-medium transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                className="relative dark:text-white text-[clamp(18px,1.5vw,20px)] font-normal transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                 onClick={(e) => handleClick(e, item.href)}
               >
                 {item.text}
@@ -107,7 +107,7 @@ function Header() {
 
       {/* ----------------------------------- Sidebar (only visible in tab and mobile) ------------------------- */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-72 dark:bg-dark bg-white/100 p-5 shadow-lg transition-transform duration-100 transform lg:hidden ${
+        className={`fixed top-0 right-0 z-50 h-full w-70 dark:bg-dark bg-white/100 p-5 shadow-lg transition-transform duration-100 transform lg:hidden overflow-hidden ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
