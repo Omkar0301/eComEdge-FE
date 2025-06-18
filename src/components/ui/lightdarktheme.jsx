@@ -1,41 +1,41 @@
+"use client";
+
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleThemeMode } from "@/redux/actions/uiActions";
 
 export function useThemeToggle() {
-  const [theme, setTheme] = useState("light");
+  const theme = useSelector((state) => state.ui.themeMode);
+  const dispatch = useDispatch();
+
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const storedTheme = localStorage.getItem("theme");
-
-    // Determine initial theme
-    const initialTheme = storedTheme || (mediaQuery.matches ? "dark" : "light");
-    setTheme(initialTheme);
-    document.documentElement.classList.toggle("dark", initialTheme === "dark");
-
-    // Listener for system theme change
-    const handleChange = (e) => {
-      // Only react if no manual preference
-      const stored = localStorage.getItem("theme");
-      if (!stored) {
-        const newTheme = e.matches ? "dark" : "light";
-        setTheme(newTheme);
-        document.documentElement.classList.toggle("dark", newTheme === "dark");
-      }
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
+    setIsMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (isMounted) {
+      if (!theme) {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (prefersDark) {
+          dispatch(toggleThemeMode());
+        }
+      }
+    }
+  }, [isMounted, theme, dispatch]);
+
+  useEffect(() => {
+    if (isMounted) {
+      document.documentElement.classList.toggle("dark", theme === "dark");
+    }
+  }, [isMounted, theme]);
+
   const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    dispatch(toggleThemeMode());
   };
 
-  return [theme, toggleTheme];
+  return [isMounted ? theme : null, toggleTheme];
 }
