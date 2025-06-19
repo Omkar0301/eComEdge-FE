@@ -50,8 +50,8 @@ function Testimonials() {
 
 
   return (
-    <section id="testimonial" className=" pt-14 sm:pt-20 lg:pt-[80px] lg:flex lg:justify-center lg:items-center">
-      <div className=" xl:container">
+    <section id="testimonial" className=" pt-20 sm:pt-20 lg:pt-[80px] lg:flex lg:justify-center lg:items-center">
+      <div className="lg:px-12 md:px-12 px-4 w-full">
         <div className="relative mx-auto mb-5 max-w-[620px] px-4 pt-6 text-center md:mb-20 lg:pt-16">
           <span className="title">TESTIMONIAL</span>
           <h2 className="mb-5 font-heading text-3xl font-semibold text-dark dark:text-white sm:text-4xl md:text-[50px] md:leading-[60px]">
@@ -63,16 +63,14 @@ function Testimonials() {
             ante in maximus.
           </p>
         </div>
-        <div className="w-full py-12 lg:py-16 relative">
-
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full pb-12 lg:pb-16 relative">
+          <div className="relative max-w-7xl mx-auto  sm:px-6 lg:px-8">
             {/* Carousel container */}
             <div className="overflow-hidden relative group">
               {/* Navigation arrows */}
               <button
                 onClick={goPrev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white dark:hover:bg-gray-700 transition-all opacity-0 group-hover:opacity-100 border border-gray-200 dark:border-gray-700 hover:scale-105"
+                className="hidden lg:flex absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full items-center justify-center shadow-lg hover:bg-white dark:hover:bg-gray-700 transition-all opacity-0 group-hover:opacity-100 border border-gray-200 dark:border-gray-700 hover:scale-105"
                 aria-label="Previous testimonial"
               >
                 <svg className="w-6 h-6 text-gray-800 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,14 +80,13 @@ function Testimonials() {
 
               <button
                 onClick={goNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white dark:hover:bg-gray-700 transition-all opacity-0 group-hover:opacity-100 border border-gray-200 dark:border-gray-700 hover:scale-105"
+                className="hidden lg:flex absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full items-center justify-center shadow-lg hover:bg-white dark:hover:bg-gray-700 transition-all opacity-0 group-hover:opacity-100 border border-gray-200 dark:border-gray-700 hover:scale-105"
                 aria-label="Next testimonial"
               >
                 <svg className="w-6 h-6 text-gray-800 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
-
               {/* Slides */}
               <div className="overflow-hidden">
                 <div
@@ -97,8 +94,8 @@ function Testimonials() {
                   style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
                   {testimonials.map((testimonial) => (
-                    <div key={testimonial.id} className="w-full flex-shrink-0 px-4 py-8">
-                      <div className="testimonial-card bg-white dark:bg-gray-800 rounded-2xl p-8 md:p-10 max-w-4xl mx-auto relative overflow-hidden border border-gray-100 dark:border-gray-700 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                    <div key={testimonial.id} className="w-full flex-shrink-0 px-4 py-15">
+                      <div className="testimonial-card bg-white dark:bg-gray-800 rounded-2xl p-8 md:p-10 max-w-[900px] h-full mx-auto relative overflow-hidden border dark:border-0 shadow-xl">
                         {/* Gradient accents */}
                         <div className="absolute -right-10 -top-10 w-48 h-48 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-10 z-0 blur-4xl"></div>
                         <div className="absolute -left-10 -bottom-10 w-44 h-44 bg-gradient-to-tr from-blue-400 via-purple-400 to-indigo-500 rounded-full opacity-15 z-0 blur-4xl"></div>
@@ -126,7 +123,7 @@ function Testimonials() {
                           </blockquote>
 
                           {/* Author info */}
-                          <div className="flex items-center w-80 relative px-2 py-2 rounded-4xl z-20 bg-white/50">
+                          <div className="flex items-center max-w-4xl w-[290px] relative px-2 py-2 rounded-4xl z-20 bg-white/50">
                             <div className="mr-5">
                               <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-600 overflow-hidden border-2 border-white dark:border-gray-700 shadow-md hover:shadow-lg transition-shadow">
                                 {testimonial.avatar ? (
@@ -146,7 +143,7 @@ function Testimonials() {
                               <p className="font-bold text-gray-900 dark:text-white text-lg md:text-xl">
                                 {testimonial.name}
                               </p>
-                              <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base">
+                              <p className="text-gray-600 dark:text-white text-sm md:text-base">
                                 {testimonial.role} • {testimonial.company}
                               </p>
                               <div className="flex mt-2 space-x-2">
@@ -165,7 +162,6 @@ function Testimonials() {
                 </div>
               </div>
             </div>
-
             {/* Navigation dots with animation */}
             <div className="flex justify-center mt-8 gap-3">
               {testimonials.map((_, index) => (
@@ -181,8 +177,7 @@ function Testimonials() {
                 </button>
               ))}
             </div>
-
-
+            
           </div>
         </div>
       </div>

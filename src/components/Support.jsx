@@ -7,11 +7,9 @@ import {
   Facebook,
   Twitter,
   Linkedin,
-  Github,
   ChevronRight,
-  User,
-  MessageSquare,
-  Hash
+  Instagram,
+  SendHorizontal
 } from 'lucide-react';
 
 function Support() {
@@ -23,18 +21,16 @@ function Support() {
   };
 
   return (
-    <section id="support" className="relative py-24 overflow-hidden bg-gray-100 dark:bg-gray-900">
+    <section id="support" className="relative mt-30 pt-20 py-24 overflow-hidden bg-gray-100 dark:bg-gray-900">
       {/* Decorative elements */}
       <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-4xl"></div>
       <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-4xl"></div>
 
-      <div className="container px-4 mx-auto">
+      <div className="lg:px-12 md:px-12 px-4 w-full">
         {/* Header */}
-        <div className="text-center mb-20 max-w-3xl mx-auto">
-          <span className="inline-block mb-4 text-sm font-medium tracking-wider text-blue-600 dark:text-blue-400">
-            GET IN TOUCH
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16">
+          <span className="title">Contact&nbsp;Us</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Let's build something <span className="relative">
               amazing
               <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"></span>
@@ -101,22 +97,47 @@ function Support() {
               </div>
             </div>
 
+            <hr className="max-w-full " />
+
             {/* Social links */}
-            <div className="mt-5 p-8 ">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Follow us</h3>
-              <div className="flex space-x-6">
+            <div className=" p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center md:text-left">
+                Follow Us !
+              </h3>
+              <div className="flex justify-center md:justify-start space-x-5">
                 {[
-                  { icon: Facebook, color: 'text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300' },
-                  { icon: Twitter, color: 'text-sky-500 hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-300' },
-                  { icon: Linkedin, color: 'text-blue-700 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400' },
-                  { icon: Github, color: 'text-gray-800 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-200' }
+                  {
+                    icon: Facebook,
+                    color: 'bg-blue-100 dark:bg-blue-900/30',
+                    hover: 'hover:bg-blue-500 dark:hover:bg-blue-600',
+                    iconColor: 'text-blue-600 dark:text-blue-400'
+                  },
+                  {
+                    icon: Twitter,
+                    color: 'bg-sky-100 dark:bg-sky-900/30',
+                    hover: 'hover:bg-sky-500 dark:hover:bg-sky-600',
+                    iconColor: 'text-sky-500 dark:text-sky-400'
+                  },
+                  {
+                    icon: Linkedin,
+                    color: 'bg-blue-100 dark:bg-blue-900/30',
+                    hover: 'hover:bg-blue-700 dark:hover:bg-blue-800',
+                    iconColor: 'text-blue-700 dark:text-blue-500'
+                  },
+                  {
+                    icon: Instagram,
+                    color: 'bg-purple-100 dark:bg-purple-900/30',
+                    hover: 'hover:bg-gradient-to-r from-purple-500 to-pink-500',
+                    iconColor: 'text-purple-600 dark:text-purple-400'
+                  }
                 ].map((social, index) => (
                   <a
                     key={index}
                     href="#"
-                    className={`${social.color} transition-transform duration-300 hover:-translate-y-1`}
+                    className={`${social.color} ${social.hover} ${social.iconColor} w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 hover:text-white shadow-md`}
+                    aria-label={`Follow us on ${social.icon.name}`}
                   >
-                    <social.icon className="w-6 h-6" />
+                    <social.icon className="w-6 h-6 transition-colors duration-300" />
                   </a>
                 ))}
               </div>
@@ -127,7 +148,7 @@ function Support() {
           <div className="lg:w-1/2">
             <div className="relative h-full p-0.5 rounded-2xl ">
               <div className="h-full bg-white dark:bg-gray-800 rounded-2xl p-8 md:p-10">
-                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
                   Send us a message
                 </h3>
 
@@ -138,7 +159,7 @@ function Support() {
                       <input
                         type="text"
                         id="name"
-                        className="peer w-full px-4 py-3 border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 placeholder-transparent"
+                        className="peer w-full px-2 py-3 border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 placeholder-transparent"
                         placeholder=" "
                         required
                       />
@@ -155,7 +176,7 @@ function Support() {
                       <input
                         type="email"
                         id="email"
-                        className="peer w-full px-4 py-3 border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 placeholder-transparent"
+                        className="peer w-full px-2 py-3 border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 placeholder-transparent"
                         placeholder=" "
                         required
                       />
@@ -172,7 +193,7 @@ function Support() {
                       <input
                         type="text"
                         id="subject"
-                        className="peer w-full px-4 py-3 border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 placeholder-transparent"
+                        className="peer w-full px-2 py-3 border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 placeholder-transparent"
                         placeholder=" "
                         required
                       />
@@ -189,7 +210,7 @@ function Support() {
                       <textarea
                         id="message"
                         rows="4"
-                        className="peer w-full px-4 py-3 border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 placeholder-transparent"
+                        className="peer w-full px-2 py-3 border-0 border-b-2 border-gray-200 dark:border-gray-700 bg-transparent focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 placeholder-transparent"
                         placeholder=" "
                         required
                       ></textarea>
@@ -207,10 +228,10 @@ function Support() {
                     <input
                       id="terms"
                       type="checkbox"
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:outline-none focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      className="w-4 h-4 text-blue-600"
                       required
                     />
-                    <label htmlFor="terms" className="ml-2 text-sm text-gray-600 dark:text-gray-400">
+                    <label htmlFor="terms" className="ml-5 text-sm text-gray-600 dark:text-gray-400">
                       I agree to the privacy policy and terms of service
                     </label>
                   </div>
@@ -233,7 +254,7 @@ function Support() {
                     ) : (
                       <>
                         Send Message
-                        <ChevronRight className="ml-2 w-5 h-5" />
+                        <SendHorizontal className="ml-2 w-5 h-5" />
                       </>
                     )}
                   </button>

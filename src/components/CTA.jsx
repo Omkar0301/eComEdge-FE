@@ -3,8 +3,8 @@ import React from "react";
 
 function CTA() {
   return (
-    <section id="cta" className="pt-14 sm:pt-20 lg:pt-[130px] lg:flex lg:justify-center lg:items-center">
-      <div className=" xl:container">
+    <section id="cta" className="py-15 sm:py-15 lg:py-[40px] lg:flex lg:justify-center lg:items-center">
+      <div className="lg:px-12 md:px-12 px-0 w-full">
         <div
           className="drop-shadow-light relative overflow-hidden bg-cover bg-center px-10 py-[60px] sm:px-[70px] dark:drop-shadow-none"
         //   style={{
@@ -35,7 +35,7 @@ function CTA() {
             <div className="w-full px-4 lg:w-1/3">
               <div className="text-center lg:text-right">
                 <a
-                  href="#"
+                  href="/#pricing"
                   className="bg-primary font-heading hover:bg-primary/90 inline-flex items-center rounded-sm px-8 py-[14px] text-base text-white"
                 >
                   Get Started Now <ArrowRight className="ml-2 h-4 w-4" />
