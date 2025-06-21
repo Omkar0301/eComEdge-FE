@@ -10,7 +10,7 @@ function About() {
       <section id="aboutus" className="pt-20 sm:pt-20 lg:pt-[80px] lg:flex lg:justify-center lg:items-center">
         <div className="lg:px-12 md:px-12 px-4 w-full">
           <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16">
-            <span className="title">About</span>
+            <span className="title">About&nbsp;Us</span>
             <h2 className="mb-5 font-heading text-3xl font-semibold text-dark dark:text-white sm:text-4xl md:text-[50px] md:leading-[60px]">
               Know Details About Our Company
             </h2>
