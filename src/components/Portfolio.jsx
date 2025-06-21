@@ -1,50 +1,53 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import {ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
 const portfolioItems = [
   {
-    "id": 1,
-    "title": "Elegant Fashion Boutique",
-    "category": "Ecommerce",
-    "image": "/team.png"
+    id: 1,
+    title: "Elegant Fashion Boutique",
+    category: "Ecommerce",
+    image: "/team.png",
   },
   {
-    "id": 2,
-    "title": "Tech Startup Branding",
-    "category": "Brand Design",
-    "image": "/team.png"
+    id: 2,
+    title: "Tech Startup Branding",
+    category: "Brand Design",
+    image: "/team.png",
   },
   {
-    "id": 3,
-    "title": "Organic Grocery Platform",
-    "category": "Ecommerce",
-    "image": "/team.png"
+    id: 3,
+    title: "Organic Grocery Platform",
+    category: "Ecommerce",
+    image: "/team.png",
   },
   {
-    "id": 4,
-    "title": "Luxury Watch Collection",
-    "category": "Branded Ecommerce",
-    "image": "/team.png"
+    id: 4,
+    title: "Luxury Watch Collection",
+    category: "Branded Ecommerce",
+    image: "/team.png",
   },
   {
-    "id": 5,
-    "title": "Creative Agency Identity",
-    "category": "Brand Design",
-    "image": "/team.png"
+    id: 5,
+    title: "Creative Agency Identity",
+    category: "Brand Design",
+    image: "/team.png",
   },
   {
-    "id": 6,
-    "title": "Fitness Equipment Store",
-    "category": "Ecommerce",
-    "image": "/team.png"
-  }
+    id: 6,
+    title: "Fitness Equipment Store",
+    category: "Ecommerce",
+    image: "/team.png",
+  },
 ];
 
 function Portfolio() {
   return (
-    <section id="portfolio" className="py-20 sm:pt-20 lg:pt-[80px] lg:flex lg:justify-center lg:items-center">
-      <div className="lg:px-12 md:px-12 px-4 w-full ">
+    <section
+      id="portfolio"
+      className="py-20 sm:pt-20 lg:pt-[80px] lg:flex lg:justify-center lg:items-center"
+    >
+      <div className="2xl:px-30 lg:px-12 md:px-12 px-4 w-full ">
         <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16">
           <span className="title">PORTFOLIO</span>
           <h2 className="mb-5 font-heading text-3xl font-semibold text-dark dark:text-white sm:text-4xl md:text-[50px] md:leading-[60px]">
@@ -61,7 +64,7 @@ function Portfolio() {
           {portfolioItems.map((item) => (
             <div
               key={item.id}
-              className="flex-[2_2_600px] max-w-[400px] overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl dark:shadow-gray-800/50"
+              className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/3 2xl:w-1/3 max-w-[400px] overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl dark:shadow-gray-800/50"
             >
               {/* Image with zoom effect */}
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -106,6 +109,3 @@ function Portfolio() {
 }
 
 export default Portfolio;
-
-
-

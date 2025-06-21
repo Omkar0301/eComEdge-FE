@@ -12,6 +12,7 @@ function Header() {
   // -------------------------------------------------- Variables ----------------------------------------------- //
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, toggleTheme] = useThemeToggle();
+  const [activeSection, setActiveSection] = useState("");
 
   const handleClick = (e, href) => {
     e.preventDefault();
@@ -24,19 +25,47 @@ function Header() {
   // Prevent scrolling when menu is open
   useEffect(() => {
     if (menuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
 
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  // -------------------------------- Scroll Spy for Active Section -------------------------------- //
+  useEffect(() => {
+    const sectionIds = navItems.map((item) => item.href.replace("/#", ""));
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY + 150; // adjust offset as needed
+      let current = "";
+
+      sectionIds.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          if (scrollY >= top && scrollY < top + height) {
+            current = id;
+          }
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // run initially
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { href: "/#features", text: "Features" },
     { href: "/#aboutus", text: "About Us" },
+    { href: "/#team", text: "Team" },
     { href: "/#portfolio", text: "Portfolio" },
     { href: "/#testimonial", text: "Testimonials" },
     { href: "/#pricing", text: "Pricing" },
@@ -70,17 +99,30 @@ function Header() {
           </Link>
 
           {/* --------------------------------------- Desktop Navigation --------------------------------------------- */}
-          <nav className="hidden lg:flex lg:items-center lg:space-x-12">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="relative dark:text-white text-[clamp(18px,1.5vw,20px)] font-medium transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-                onClick={(e) => handleClick(e, item.href)}
-              >
-                {item.text}
-              </Link>
-            ))}
+          <nav className="hidden lg:flex lg:items-center lg:space-x-9 relative">
+            {navItems.map((item) => {
+              const id = item.href.replace("/#", "");
+              const isActive = activeSection === id;
+              return (
+                <motion.div key={item.href} transition={{ duration: 0.2 }}>
+                  <Link
+                    href={item.href}
+                    onClick={(e) => handleClick(e, item.href)}
+                    className={`relative transition-all text-[clamp(18px,1.5vw,20px)]  font-medium dark:text-white after:absolute after:left-0 after:-bottom-1 after:h-[2px]  after:w-0 after:bg-primary after:transition-all after:duration-200 hover:after:w-full ${
+                      isActive ? "text-primary" : "hover:text-primary"
+                    }`}
+                  >
+                    {item.text}
+                    {isActive && (
+                      <motion.span
+                        layoutId="underline"
+                        className="absolute left-0 -bottom-1 h-[2px] w-full bg-primary"
+                      />
+                    )}
+                  </Link>
+                </motion.div>
+              );
+            })}
           </nav>
 
           {/* --------------------------------------------- Right Controls -------------------------------------------- */}
@@ -120,8 +162,9 @@ function Header() {
 
       {/* Sidebar (only visible in tab and mobile) */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-70 dark:bg-dark bg-white/100 p-5 shadow-lg transition-transform duration-100 transform lg:hidden overflow-y-auto ${menuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed top-0 right-0 z-50 h-full w-70 dark:bg-dark bg-white/100 p-5 shadow-lg transition-transform duration-100 transform lg:hidden overflow-y-auto ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex justify-end">
           <Button
