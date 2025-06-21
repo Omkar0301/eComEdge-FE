@@ -3,8 +3,8 @@ import React from "react";
 function Features() {
   return (
     <>
-      <section id="features" className="pt-14 sm:pt-20 lg:pt-[30px] lg:pb-[30px] lg:flex lg:justify-center lg:items-center">
-        <div className="pt-14 sm:pt-20 lg:pt-[30px]">
+      <section id="features" className="pt-20 sm:pt-20 lg:pt-[80px] lg:pb-[30px] lg:flex lg:justify-center lg:items-center">
+        <div className="lg:px-12 md:px-12 px-4 w-full">
           <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16">
             <span className="title">Features</span>
             <div className="mb-5 font-heading px-2 md:px-0 text-3xl font-semibold text-dark dark:text-white sm:text-4xl md:text-[50px] md:leading-[60px]">
@@ -17,7 +17,7 @@ function Features() {
             </div>
           </div>
 
-          <div className="container mx-auto px-4 py-12">
+          <div className="mx-auto px-12 py-12">
             <div className="flex flex-wrap -mx-4">
               {/* Feature 1 */}
               <div className="w-full px-4 mb-8 md:w-1/2 lg:w-1/3">

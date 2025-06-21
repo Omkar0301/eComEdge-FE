@@ -19,11 +19,11 @@ export default function Main() {
       <About />
       <Team />
       <Portfolio />
-      <Testimonials />
+    <Testimonials />
       <Pricing />
-      <Support />
-      <CTA />
-      <Footer />
+     <Support />
+       <CTA />
+     <Footer />
     </>
   );
 }

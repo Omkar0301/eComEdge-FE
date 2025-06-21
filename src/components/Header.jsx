@@ -1,6 +1,6 @@
 "use client";
 // ----------------------------------------------------- Imports ----------------------------------------------- //
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Search, SunMoon } from "lucide-react";
 import Image from "next/image";
@@ -14,12 +14,25 @@ function Header() {
   const [theme, toggleTheme] = useThemeToggle();
 
   const handleClick = (e, href) => {
-  e.preventDefault();
-  setMenuOpen(false);
-  const targetId = href.replace(/.*#/, "");
-  const elem = document.getElementById(targetId);
-  elem?.scrollIntoView({ behavior: "smooth" });
-};
+    e.preventDefault();
+    setMenuOpen(false);
+    const targetId = href.replace(/.*#/, "");
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
 
   const navItems = [
     { href: "/#features", text: "Features" },
@@ -62,7 +75,7 @@ function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative dark:text-white text-[clamp(18px,1.5vw,20px)] font-normal transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                className="relative dark:text-white text-[clamp(18px,1.5vw,20px)] font-medium transition hover:text-primary after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                 onClick={(e) => handleClick(e, item.href)}
               >
                 {item.text}
@@ -100,16 +113,15 @@ function Header() {
       {/* ----------------------------------------------- Overlay ---------------------------------------------- */}
       {menuOpen && (
         <div
-          className="fixed  inset-0 z-40 dark:bg-dark/70 bg-white/100  lg:hidden"
+          className="fixed inset-0 z-40 dark:bg-dark/70 bg-white/70 lg:hidden"
           onClick={() => setMenuOpen(false)}
         />
       )}
 
-      {/* ----------------------------------- Sidebar (only visible in tab and mobile) ------------------------- */}
+      {/* Sidebar (only visible in tab and mobile) */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-70 dark:bg-dark bg-white/100 p-5 shadow-lg transition-transform duration-100 transform lg:hidden overflow-hidden ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 z-50 h-full w-70 dark:bg-dark bg-white/100 p-5 shadow-lg transition-transform duration-100 transform lg:hidden overflow-y-auto ${menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex justify-end">
           <Button
@@ -121,22 +133,27 @@ function Header() {
             <X className="h-10 w-10 dark:text-white" />
           </Button>
         </div>
-        <nav className="mt-10 flex flex-col space-y-5 dark:text-white">
-          {navItems.map((item) => (
-            <motion.div
-              key={item.href}
-              whileHover={{ x: 10 }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
-            >
-              <Link
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="block text-[20px] font-medium hover:text-primary"
+
+        <nav className="mt-10 flex flex-col dark:text-white">
+          {navItems.map((item, index) => (
+            <div key={item.href} className="flex flex-col">
+              <motion.div
+                whileHover={{ x: 10 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="py-3"
               >
-                {item.text}
-              </Link>
-              <hr className="dark:border-white/20 mt-4" />
-            </motion.div>
+                <Link
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block text-[18px] font-medium hover:text-primary transition-colors duration-200"
+                >
+                  {item.text}
+                </Link>
+              </motion.div>
+              {index !== navItems.length - 1 && (
+                <hr className="border-gray-200 dark:border-gray-700 my-2 opacity-30" />
+              )}
+            </div>
           ))}
         </nav>
       </div>
