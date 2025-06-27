@@ -16,10 +16,14 @@ function Home() {
           <div className="w-full px-4 lg:w-1/2">
             <div className="mx-auto mb-8 max-w-[510px] text-center lg:mb-0 lg:text-left">
               <h1 className="mb-4 font-heading text-3xl font-semibold sm:text-5xl md:text-5xl lg:text-4xl xl:text-[2.75rem] leading-tight dark:text-white">
-                Next.js Boilerplate for Your <AnimatedWord words={rotatingWords} />
+                Next.js Boilerplate for Your{" "}
+                <AnimatedWord words={rotatingWords} />
               </h1>
               <p className="mb-6 text-sm text-dark-text sm:text-base md:text-lg">
-                Handcrafted Next.js starter for your next Startup, Business, Agency, or SaaS Website. Comes with refreshing design, integrations, and everything you need to kickstart your web project.
+                Handcrafted Next.js starter for your next Startup, Business,
+                Agency, or SaaS Website. Comes with refreshing design,
+                integrations, and everything you need to kickstart your web
+                project.
               </p>
               <div className="text-center lg:text-left">
                 <a
@@ -40,8 +44,8 @@ function Home() {
                   fill
                   className="rounded-lg object-cover"
                   style={{
-                    objectPosition: 'center',
-                    color: 'transparent'
+                    objectPosition: "center",
+                    color: "transparent",
                   }}
                 />
               </div>
