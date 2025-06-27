@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import 'swiper/css';
-@import 'swiper/css/pagination';
+@import "swiper/css";
+@import "swiper/css/pagination";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -242,10 +242,26 @@ video {
     transparent
   ) !important;
   padding-block: calc(var(--spacing) * 2) !important;
-  transition-property: color, background-color, border-color, outline-color,
-    text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via,
-    --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate,
-    filter, -webkit-backdrop-filter, backdrop-filter !important;
+  transition-property:
+    color,
+    background-color,
+    border-color,
+    outline-color,
+    text-decoration-color,
+    fill,
+    stroke,
+    --tw-gradient-from,
+    --tw-gradient-via,
+    --tw-gradient-to,
+    opacity,
+    box-shadow,
+    transform,
+    translate,
+    scale,
+    rotate,
+    filter,
+    -webkit-backdrop-filter,
+    backdrop-filter !important;
   transition-timing-function: var(
     --tw-ease,
     var(--default-transition-timing-function)

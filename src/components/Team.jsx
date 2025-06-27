@@ -4,7 +4,10 @@ import React from "react";
 
 function Team() {
   return (
-    <section id="team" className="pt-20 sm:pt-20 lg:pt-[130px] lg:flex lg:justify-center lg:items-center w-full">
+    <section
+      id="team"
+      className="pt-20 sm:pt-20 lg:pt-[130px] lg:flex lg:justify-center lg:items-center w-full"
+    >
       <div className="lg:px-12 md:px-12 px-4 w-full">
         <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16 w-full">
           <span className="title">TEAM</span>

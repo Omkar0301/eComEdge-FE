@@ -15,15 +15,15 @@ export default function Main() {
     <>
       <Header />
       <Home />
-      <Features /> 
+      <Features />
       <About />
       <Team />
       <Portfolio />
-    <Testimonials />
+      <Testimonials />
       <Pricing />
-     <Support />
-       <CTA />
-     <Footer />
+      <Support />
+      <CTA />
+      <Footer />
     </>
   );
 }

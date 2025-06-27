@@ -39,12 +39,7 @@ function Footer() {
                     />
                   </div>
                   <div className="dark:hidden">
-                    <Image
-                      alt="logo"
-                      width={115}
-                      height={50}
-                      src="/next.svg"
-                    />
+                    <Image alt="logo" width={115} height={50} src="/next.svg" />
                   </div>
                 </a>
                 <p className="mb-10 text-base text-dark-text">
@@ -77,7 +72,7 @@ function Footer() {
                     aria-label="social-link"
                     className="text-dark-text hover:text-primary dark:hover:text-white"
                   >
-                    <Instagram size={24}  />
+                    <Instagram size={24} />
                   </a>
                 </div>
               </div>
@@ -268,7 +263,6 @@ function Footer() {
           </div>
         </div>
       </footer>
-
     </>
   );
 }

@@ -1,9 +1,12 @@
 import React from "react";
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight } from "lucide-react";
 
 function Pricing() {
   return (
-    <section id="pricing" className="pt-20 sm:pt-20 lg:pt-[80px] lg:flex lg:justify-center lg:items-center">
+    <section
+      id="pricing"
+      className="pt-20 sm:pt-20 lg:pt-[80px] lg:flex lg:justify-center lg:items-center"
+    >
       <div className=" w-full">
         <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16">
           <span className="title">PRICING PLANS</span>
