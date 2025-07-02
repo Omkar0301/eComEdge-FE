@@ -1,10 +1,13 @@
 import React from "react";
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight } from "lucide-react";
 
 function Pricing() {
   return (
-    <section id="pricing" className="pt-14 sm:pt-20 lg:pt-[80px]">
-      <div className="px-4 xl:container">
+    <section
+      id="pricing"
+      className="pt-20 sm:pt-20 lg:pt-[80px] lg:flex lg:justify-center lg:items-center"
+    >
+      <div className=" w-full">
         <div className="relative mx-auto mb-12 max-w-[620px] pt-6 text-center md:mb-20 lg:pt-16">
           <span className="title">PRICING PLANS</span>
           <h2 className="mb-5 font-heading text-3xl font-semibold text-dark dark:text-white sm:text-4xl md:text-[50px] md:leading-[60px]">
@@ -165,7 +168,7 @@ function Pricing() {
             </div>
           </div>
         </div>
-        <div className="pt-12 text-center">
+        {/* <div className="pt-12 text-center">
           <h3 className="mb-5 font-heading text-xl font-medium text-dark dark:text-white sm:text-3xl">
             Looking for a company solution?
           </h3>
@@ -175,7 +178,7 @@ function Pricing() {
           >
             Contact our team to get a quote.
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -9,59 +9,45 @@ function Home() {
   return (
     <section
       id="home"
-      className="relative z-40 overflow-hidden py-10 sm:pt-30 lg:pb-[30px] lg:pt-[30px]"
+      className="relative z-40 overflow-hidden py-6 sm:py-12 md:py-16 lg:py-20 xl:py-24 lg:flex lg:items-center lg:justify-center"
     >
-      <div className="px-4 xl:container">
+      <div className="mx-auto w-full max-w-8xl px-4 sm:px-6 lg:px-8">
         <div className="-mx-4 flex flex-wrap items-center">
-          <div className="w-full px-3 lg:w-1/2">
-            <div className="mx-auto mb-12 max-w-[530px] text-center lg:mb-0 lg:ml-0 lg:text-left px-5">
-              <h1 className="font-heading mb-5 text-2xl font-semibold sm:text-4xl md:text-[50px] md:leading-[60px] dark:text-white">
+          <div className="w-full px-4 lg:w-1/2">
+            <div className="mx-auto mb-8 max-w-[510px] text-center lg:mb-0 lg:text-left">
+              <h1 className="mb-4 font-heading text-3xl font-semibold sm:text-5xl md:text-5xl lg:text-4xl xl:text-[2.75rem] leading-tight dark:text-white">
                 Next.js Boilerplate for Your{" "}
                 <AnimatedWord words={rotatingWords} />
               </h1>
-              <p className="text-dark-text mb-12 text-base">
-                Handcrafted Next.js starter for your next - Startup, Business,
-                Agency or SaaS Website. Comes with refreshing design,
-                integrations and everything you need to kickstart your next web
+              <p className="mb-6 text-sm text-dark-text sm:text-base md:text-lg">
+                Handcrafted Next.js starter for your next Startup, Business,
+                Agency, or SaaS Website. Comes with refreshing design,
+                integrations, and everything you need to kickstart your web
                 project.
               </p>
-              <div className="flex flex-wrap items-center justify-center lg:justify-start">
-                <Link
-                  className="bg-primary font-heading hover:bg-primary/90 inline-flex items-center rounded-lg px-6 py-[10px] text-base text-white md:px-8 md:py-[14px] font-bold"
-                  href="#features"
+              <div className="text-center lg:text-left">
+                <a
+                  href="/#pricing"
+                  className="bg-primary font-heading hover:bg-primary/90 inline-flex items-center rounded-sm px-8 py-[14px] text-base text-white"
                 >
-                  Get Started
-                  <span className="pl-3 transform transition-transform duration-300 ease-in-out group-hover:translate-x-1">
-                    <ArrowRight />
-                  </span>
-                </Link>
+                  Get Started Now <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
-          <div className="w-full px-3 lg:w-1/2">
-            <div className="wow fadeInRight relative z-30 mx-auto h-[560px] w-full max-w-[700px] lg:ml-0">
-              <div className="absolute right-0 top-0 lg:w-11/12">
+          <div className="mt-8 w-full px-4 lg:mt-0 lg:w-1/2">
+            <div className="relative mx-auto h-[280px] w-full max-w-[700px] sm:h-[360px] md:h-[480px] flex justify-center items-center">
+              <div className="relative w-full sm:w-3/4 lg:w-10/12 h-full">
                 <Image
-                  alt="hero-image"
-                  loading="lazy"
-                  width={560}
-                  height={520}
-                  src={"/hero_image.png"}
-                  className="object-cover aspect-[1.08]"
-                  style="color:transparent"
-                ></Image>
-              </div>
-              <div className="absolute bottom-0 left-0 z-10">
-                <Image
-                  alt="hero-image"
-                  loading="lazy"
-                  width={350}
-                  height={420}
-                  src={"/hero_image_1.png"}
-                  className="object-cover aspect-[1.08]"
-                  style="color:transparent"
-                ></Image>
-                <div className="border-primary/10 bg-primary/5 absolute -right-6 -top-6 -z-10 h-full w-full border backdrop-blur-[6px] dark:border-white/10 dark:bg-white/10"></div>
+                  alt="Hero image"
+                  src="/hero_image.png"
+                  fill
+                  className="rounded-lg object-cover"
+                  style={{
+                    objectPosition: "center",
+                    color: "transparent",
+                  }}
+                />
               </div>
             </div>
           </div>
